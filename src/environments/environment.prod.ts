@@ -1,3 +1,6 @@
-export const environment = {
-  production: true
+import { EnvironmentValues } from './values';
+
+export const environment: EnvironmentValues = {
+  production: true,
+  personServiceEndpoint: ''
 };
