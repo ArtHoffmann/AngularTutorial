@@ -1,0 +1,4 @@
+<form #personForm="ngForm" novalidate>
+  <input name="firstName" #firstNameElement #firstNameControl="ngModel" placeholder="Put first name in" required maxlength="50" [(ngModel)]="person.firstName">
+  <input name="lastName" #lastNameElement #lastNameControl="ngModel" placeholder="Put last name in" required maxlength="50" [(ngModel)]="person.lastName">
+</form>
