@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import { environment } from 'environments/environment';
@@ -15,8 +15,15 @@ export class PersonService {
     this._endPoint = environment.personServiceEndpoint;
   }
 
+  private get JsonContentHeader(): HttpHeaders {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return headers;
+  }
+
   createPerson(data: Person): Observable<PersonPresentation> {
-    return this._http.post<PersonPresentation>(this._endPoint, JSON.stringify(data));
+    return this._http.post<PersonPresentation>(this._endPoint, JSON.stringify(data), {
+      headers: this.JsonContentHeader
+    });
   }
 
   queryPersons(params: PagedQuery): Observable<PersonPresentation[]> {
@@ -41,7 +48,9 @@ export class PersonService {
   }
 
   updatePerson(id: number, data: Person): Observable<PersonPresentation> {
-    return this._http.put<PersonPresentation>(`${this._endPoint}/${id}`, JSON.stringify(data));
+    return this._http.put<PersonPresentation>(`${this._endPoint}/${id}`, JSON.stringify(data), {
+      headers: this.JsonContentHeader
+    });
   }
 
   deletePerson(id: number): Observable<any> {
