@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, isDevMode } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { Person } from 'app/models/person';
@@ -21,7 +21,6 @@ export class AddPersonPageComponent implements OnInit {
   }
 
   handleValid(event: boolean) {
-    console.log(event);
     this.valid$.next(event);
   }
 
