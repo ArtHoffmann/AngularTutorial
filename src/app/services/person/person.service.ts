@@ -3,7 +3,7 @@ import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import { environment } from 'environments/environment';
-import { Person, PersonPresentation } from 'app/models/person';
+import { Person, PersonPresentation, PersonDetails } from 'app/models/person';
 import { PagedQuery } from 'app/models';
 
 @Injectable()
@@ -43,8 +43,8 @@ export class PersonService {
     });
   }
 
-  getPerson(id: number): Observable<PersonPresentation> {
-    return this._http.get<PersonPresentation>(`${this._endPoint}/${id}`);
+  getPerson(id: number): Observable<PersonDetails> {
+    return this._http.get<PersonDetails>(`${this._endPoint}/${id}`);
   }
 
   updatePerson(id: number, data: Person): Observable<PersonPresentation> {
