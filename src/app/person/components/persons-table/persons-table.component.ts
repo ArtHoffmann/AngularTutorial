@@ -18,7 +18,15 @@ export class PersonsTableComponent {
   @Output()
   onSelect = new EventEmitter<PersonPresentation>();
 
+  triggerDelete(person: PersonPresentation) {
+    this.onDelete.emit(person);
+  }
+
+  triggerSelect(person: PersonPresentation) {
+    this.onSelect.emit(person);
+  }
+
   get isEmpty(): boolean {
-    return this.data.length === 0;
+    return !this.data || this.data.length === 0;
   }
 }
