@@ -1,0 +1,25 @@
+<ng-container *ngIf="personData$ | async as personData">
+  <div>
+      <button (click)="goBack()">
+      Back
+    </button>
+    <!-- local/persons/:id/addresses -->
+    <a routerLink="addresses">
+      Addresses
+    </a>
+  </div>
+  <div>
+    Total addresses: {{(person$ | async)?.totalAddresses}}
+  </div>
+  <div>
+    <app-person-form #personForm 
+    (valid)="handleValid($event)" 
+    [person]="personData"></app-person-form>
+  </div>
+  <div>
+    <button [disabled]="!(valid$ | async)" 
+    (click)="handleSubmit(personForm.person)">
+      Update!
+    </button>
+  </div>
+</ng-container>
