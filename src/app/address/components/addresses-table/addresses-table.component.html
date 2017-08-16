@@ -1,0 +1,20 @@
+<table *ngIf="!isEmpty; else hasData">
+  <thead>
+    <th>Actions</th>
+    <th>ID</th>
+    <th>Full Address</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let address of data">
+      <td>
+        <button (click)="triggerDelete(address)">Delete</button>
+        <button (click)="triggerSelect(address)">Details</button>
+      </td>
+      <td>{{address.id}}</td>
+      <td>{{address.fullAddress}}</td>
+    </tr>
+  </tbody>
+</table>
+<ng-template #hasData>
+  <p>No data present</p>
+</ng-template>
