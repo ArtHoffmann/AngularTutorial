@@ -16,7 +16,19 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    component: PersonDetailsPageComponent
+    component: PersonDetailsPageComponent,
+    children: [
+      // {
+      //   path: '',
+      //   redirectTo: 'addresses',
+      //   pathMatch: 'full'
+      // },
+      {
+        // local/persons/:id/addresses
+        path: 'addresses',
+        loadChildren: '../address/address.module#AddressModule'
+      }
+    ]
   }
 ];
 
