@@ -1,0 +1,8 @@
+<div>
+    <app-person-form #personForm (valid)="handleValid($event)"></app-person-form>
+</div>
+<div>
+    <button (click)="handleSubmit(personForm.person)" [disabled]="!(valid$ | async)">
+        Bullshit
+    </button>
+</div>
