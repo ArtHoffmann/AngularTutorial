@@ -3,6 +3,9 @@
   <button (click)="loadPersons()">
     Refresh!
   </button>
+  <a routerLink="add">
+    Create a person
+  </a>
 </div>
 <div>
   <app-persons-table [data]="persons$ | async" 
