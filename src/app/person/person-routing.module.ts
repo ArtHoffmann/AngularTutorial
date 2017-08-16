@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AddPersonPageComponent } from './containers';
+import { AddPersonPageComponent, PersonsListPageComponent } from './containers';
 
 const routes: Routes = [
   // localhost/persons
   {
     path: '',
-    redirectTo: 'add',
-    pathMatch: 'full'
+    component: PersonsListPageComponent
   },
   // localhost/persons/add
   {
@@ -17,7 +16,7 @@ const routes: Routes = [
   }
 ];
 
-export const routedComponents = [AddPersonPageComponent];
+export const routedComponents = [AddPersonPageComponent, PersonsListPageComponent];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

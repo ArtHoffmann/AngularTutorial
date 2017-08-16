@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { PersonRoutingModule, routedComponents } from './person-routing.module';
-import { PersonFormComponent } from './components';
-
+import { PersonFormComponent, PersonsTableComponent } from './components';
 
 @NgModule({
   imports: [
@@ -14,7 +13,8 @@ import { PersonFormComponent } from './components';
   ],
   declarations: [
     PersonFormComponent,
-    routedComponents
+    routedComponents,
+    PersonsTableComponent
   ]
 })
 export class PersonModule { }
