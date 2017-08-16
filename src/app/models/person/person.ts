@@ -14,3 +14,7 @@ export interface PersonPresentation {
     lastName: string;
     dateOfBirth: string;
 }
+
+export interface PersonDetails extends PersonPresentation {
+    totalAddresses: number;
+}
