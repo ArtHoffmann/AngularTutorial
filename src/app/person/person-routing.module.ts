@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AddPersonPageComponent, PersonsListPageComponent } from './containers';
+import { AddPersonPageComponent, PersonsListPageComponent, PersonDetailsPageComponent } from './containers';
 
 const routes: Routes = [
   // localhost/persons
@@ -13,10 +13,17 @@ const routes: Routes = [
   {
     path: 'add',
     component: AddPersonPageComponent
+  },
+  {
+    path: ':id',
+    component: PersonDetailsPageComponent
   }
 ];
 
-export const routedComponents = [AddPersonPageComponent, PersonsListPageComponent];
+export const routedComponents = [
+  AddPersonPageComponent, PersonDetailsPageComponent,
+  PersonsListPageComponent
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
