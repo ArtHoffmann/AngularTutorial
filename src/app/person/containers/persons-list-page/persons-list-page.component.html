@@ -1,5 +1,8 @@
 <div>
   <p>All the persons!</p>
+  <button (click)="loadPersons()">
+    Refresh!
+  </button>
 </div>
 <div>
   <app-persons-table [data]="persons$ | async" 

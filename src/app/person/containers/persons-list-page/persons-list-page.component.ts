@@ -20,11 +20,7 @@ export class PersonsListPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.persons$ = this._personService.queryPersons({
-      page: 1,
-      pageSize: 20,
-      filter: null
-    });
+    this.loadPersons();
   }
 
   handleDelete(event: PersonPresentation) {
@@ -35,6 +31,9 @@ export class PersonsListPageComponent implements OnInit {
       },
       error => {
         console.log('Absturz!' + JSON.stringify(error));
+      },
+      () => {
+        this.loadPersons();
       });
   }
 
@@ -49,4 +48,12 @@ export class PersonsListPageComponent implements OnInit {
     // this._router.navigateByUrl(`/persons/${event.id}`);
   }
   // root/persons/:event.id
+
+  loadPersons() {
+    this.persons$ = this._personService.queryPersons({
+      page: 1,
+      pageSize: 20,
+      filter: null
+    });
+  }
 }
