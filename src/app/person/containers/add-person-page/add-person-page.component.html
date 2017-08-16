@@ -1,4 +1,12 @@
 <div>
+    <button (click)="goBack()">
+        Go back
+    </button>
+    <a routerLink="..">
+        To persons table
+    </a>
+</div>
+<div>
     <app-person-form #personForm (valid)="handleValid($event)"></app-person-form>
 </div>
 <div>

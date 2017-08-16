@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit, ChangeDetectionStrategy, isDevMode } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
@@ -14,10 +15,15 @@ export class AddPersonPageComponent implements OnInit {
   valid$ = new BehaviorSubject<boolean>(false);
 
   constructor(
+    private _location: Location,
     private _personService: PersonService
   ) { }
 
   ngOnInit() {
+  }
+
+  goBack() {
+    this._location.back();
   }
 
   handleValid(event: boolean) {
