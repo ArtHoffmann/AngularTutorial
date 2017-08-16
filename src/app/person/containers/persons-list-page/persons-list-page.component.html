@@ -1,0 +1,8 @@
+<div>
+  <p>All the persons!</p>
+</div>
+<div>
+  <app-persons-table [data]="persons$ | async" 
+  (onDelete)="handleDelete($event)" 
+  (onSelect)="handleSelect($event)"></app-persons-table>
+</div>
