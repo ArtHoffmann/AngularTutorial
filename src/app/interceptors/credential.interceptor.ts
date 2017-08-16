@@ -16,7 +16,6 @@ export class CredentialInterceptor implements HttpInterceptor {
      * @param next a HTTP request handler
      */
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const i = new CredentialInterceptor();
         req = req.clone({
             withCredentials: true
         });
