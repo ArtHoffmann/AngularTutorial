@@ -3,20 +3,26 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import 'rxjs/add/operator/catch';
 
+import { AppRoutingModule } from './app-routing.module';
 import { CredentialInterceptorProvider, ErrorInterceptorProvider } from './interceptors';
 import { AppComponent } from './app.component';
+import { PersonService } from './services';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    AppRoutingModule,
     HttpClientModule,
     BrowserModule
   ],
   providers: [
+    // Interceptors
     CredentialInterceptorProvider,
-    ErrorInterceptorProvider
+    ErrorInterceptorProvider,
+    // Services
+    PersonService
   ],
   bootstrap: [AppComponent]
 })
