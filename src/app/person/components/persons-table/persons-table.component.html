@@ -1,24 +1,13 @@
-<table *ngIf="!isEmpty; else hasData">
-  <thead>
-    <th>Actions</th>
-    <th>ID</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Date of Birth</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let person of data">
-      <td>
-        <button (click)="triggerDelete(person)">Delete</button>
-        <button (click)="triggerSelect(person)">Details</button>
-      </td>
-      <td>{{person.id}}</td>
-      <td>{{person.firstName}}</td>
-      <td>{{person.lastName}}</td>
-      <td>{{person.dateOfBirth}}</td>
-    </tr>
-  </tbody>
-</table>
+<td-data-table #table [data]="data" [columns]="columns" *ngIf="!isEmpty; else hasData">
+  <ng-template tdDataTableTemplate="actions" let-row="row">
+    <button color="warn" md-icon-button mdTooltip="Delete" (click)="triggerDelete(row)">
+      <md-icon>delete</md-icon>
+    </button>
+    <button color="primary" md-icon-button mdTooltip="Details" mdTooltipPosition="above" (click)="triggerSelect(row)">
+      <md-icon>info_outline</md-icon>
+    </button>
+  </ng-template>
+</td-data-table>
 <ng-template #hasData>
   <p>No data present</p>
 </ng-template>
