@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { AddressRoutingModule, routedComponents } from './address-routing.module';
 import { AddressesTableComponent } from './components';
+import { SharedModule } from '../shared';
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     AddressRoutingModule
   ],
   declarations: [

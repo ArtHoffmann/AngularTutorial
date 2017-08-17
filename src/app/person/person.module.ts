@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { PersonRoutingModule, routedComponents } from './person-routing.module';
 import { PersonFormComponent, PersonsTableComponent } from './components';
+import { SharedModule } from '../shared';
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     FormsModule,
     PersonRoutingModule
   ],
