@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CovalentLayoutModule } from '@covalent/core';
 import { NgModule } from '@angular/core';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -20,8 +21,9 @@ import { PersonService } from './services';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    SharedModule,
+    CovalentLayoutModule,
     HttpClientModule,
+    SharedModule,
     AppRoutingModule
   ],
   providers: [
