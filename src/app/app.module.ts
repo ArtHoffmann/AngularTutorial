@@ -1,7 +1,9 @@
 
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdIconRegistry } from '@angular/material';
 import { CovalentLayoutModule } from '@covalent/core';
 import { NgModule } from '@angular/core';
 import 'rxjs/add/operator/catch';
@@ -14,6 +16,7 @@ import { CredentialInterceptorProvider, ErrorInterceptorProvider } from './inter
 import { AppComponent } from './app.component';
 import { PersonService } from './services';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -23,6 +26,7 @@ import { PersonService } from './services';
     BrowserAnimationsModule,
     CovalentLayoutModule,
     HttpClientModule,
+    HttpModule,
     SharedModule,
     AppRoutingModule
   ],
@@ -35,4 +39,16 @@ import { PersonService } from './services';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(
+    private _iconRegistry: MdIconRegistry,
+    private _domSanitizer: DomSanitizer
+  ) {
+    this._registerAppIcons();
+  }
+
+  private _registerAppIcons() {
+    this._iconRegistry.addSvgIconInNamespace('app', 'logo',
+      this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/people.svg'));
+  }
+}
